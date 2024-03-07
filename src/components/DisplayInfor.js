@@ -1,5 +1,6 @@
 import React from 'react'
-
+import logo from './../logo.svg';
+import './DisplayInfor.scss';
 class DisplayInfor extends React.Component {
 
   state = {
@@ -20,12 +21,16 @@ class DisplayInfor extends React.Component {
     const { name, age } = this.props; //object // const name =this.props.name const age =this.props.age;
     // destructurisng object/array : ktao nhanh cac bien trung ten voi this.props. (chuong 1)
     const { listUsers } = this.props; //const listUsers =this.props.listUsers;
-    console.log(listUsers);
+
     return (
 
-      <div>
+      <div className='display-infor-container'>
+
+        <img src={logo} />
         <div>
-          <button onClick={this.handleShowHide} >{this.state.isShow ? "Hide List Users" : "Show List Users"}</button>
+          <button onClick={this.handleShowHide} >
+            {this.state.isShow ? "Hide List Users" : "Show List Users"}
+          </button>
         </div>
 
         {listUsers.map((user) => {

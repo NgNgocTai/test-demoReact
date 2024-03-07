@@ -1,6 +1,6 @@
 import React from "react";
 
-class Userinfor extends React.Component {
+class AddUserinfor extends React.Component {
 
   state = {
     name: 'NgocTaidz',
@@ -19,9 +19,14 @@ class Userinfor extends React.Component {
       age: event.target.value
     })
   }
-  getResult = (event) => {
-    event.preventDefault()
-    console.log(this.state)
+  handleOnSubmit = (event) => {
+    event.preventDefault();
+    this.props.handleAddNewUser({
+      id: this.props.listUsers.length + 1,
+      name: this.state.name,
+      age: this.state.age
+
+    });
   }
 
   render() {
@@ -30,7 +35,7 @@ class Userinfor extends React.Component {
       <div>
         My name is {this.state.name}, I'm  {this.state.age}
 
-        <form onSubmit={this.getResult}>
+        <form onSubmit={this.handleOnSubmit}>
           <label>Your name: </label>
           <input
             value={this.state.name}
@@ -56,4 +61,4 @@ class Userinfor extends React.Component {
   }
 
 }
-export default Userinfor;
+export default AddUserinfor;
